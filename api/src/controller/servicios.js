@@ -56,7 +56,7 @@ async function EliminarServicio(req, res) {
             return res.status(400).json({ status: 400, menssage: 'No existe el servicio que deseas eliminar' })
         }
 
-        await pool.query('DELETE FROM servicio WHERE id = ?', [id]);
+        await pool.query('DELETE FROM servicios WHERE id = ?', [id]);
         res.status(200).json({ status: 200, menssage: 'Se ha eliminado con éxito el servicio' })
     } catch (error) {
         console.error(error);
