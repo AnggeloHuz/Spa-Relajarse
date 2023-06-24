@@ -9,6 +9,9 @@ router.get('/', ListarReseñas)
 router.post('/add', AgregarReseña)
 
 // Eliminar reseña
-router.delete('/delete/:id', EliminarReseñas)
+router.delete('/delete/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EliminarReseñas)
 
 module.exports = router;

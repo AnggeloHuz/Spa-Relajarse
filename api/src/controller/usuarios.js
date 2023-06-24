@@ -1,5 +1,6 @@
 const pool = require('../config/database');
-const { crearHash, comprobarPassword } = require('../middleware/bcryps')
+const { crearHash, comprobarPassword } = require('../middleware/bcryps');
+const { crearToken } = require('../middleware/jwt');
 
 async function ListarUsuario(req, res) {
     try {
@@ -37,14 +38,16 @@ async function IniciarSesion(req, res) {
             return res.status(400).json({ status: 400, menssage: 'No has ingresado propiedades necesarias: usuario, password' })
         }
 
-        const consulta = await pool.query('SELECT password FROM usuarios WHERE usuario = ?', [body.usuario])
+        const consulta = await pool.query('SELECT * FROM usuarios WHERE usuario = ?', [body.usuario])
         if (consulta.length === 0) {
             return res.status(400).json({ status: 400, menssage: 'El usuario no esta registrado' })
         }
 
         const comparacion = await comprobarPassword(body.password, consulta[0].password)
         if (comparacion) {
-            return res.status(200).json({ status: 200, menssage: 'Has iniciado sesión' })
+            const token = await crearToken(consulta[0].usuario, consulta[0].rol)
+
+            return res.status(200).json({ status: 200, menssage: 'Has iniciado sesión', token: token })
         }
 
         res.status(400).json({ status: 400, menssage: 'Clave erronea' })

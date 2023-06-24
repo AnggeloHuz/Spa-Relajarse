@@ -6,12 +6,21 @@ const router = express.Router();
 router.get('/', ListarSalud)
 
 // Agregar Artículo de salud
-router.post('/add', AgregarSalud)
+router.post('/add', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, AgregarSalud)
 
 // Editar Artículo de salud
-router.put('/edit/:id', EditarSalud)
+router.put('/edit/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EditarSalud)
 
 // Eliminar Artículo de salud
-router.delete('/delete/:id', EliminarSalud)
+router.delete('/delete/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EliminarSalud)
 
 module.exports = router;

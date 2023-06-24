@@ -6,12 +6,21 @@ const router = express.Router();
 router.get('/', ListarRecetas)
 
 // Agregar recetas
-router.post('/add', AgregarReceta)
+router.post('/add', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, AgregarReceta)
 
 // Editar recetas
-router.put('/edit/:id', EditarReceta)
+router.put('/edit/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EditarReceta)
 
 // Eliminar recetas
-router.delete('/delete/:id', EliminarReceta)
+router.delete('/delete/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EliminarReceta)
 
 module.exports = router;

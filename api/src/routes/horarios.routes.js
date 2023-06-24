@@ -7,6 +7,9 @@ const { ListarHorarios, EditarHorario } = require('../controller/horarios');
 router.get('/', ListarHorarios)
 
 // Editar los horarios
-router.put('/edit/:id', EditarHorario)
+router.put('/edit/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EditarHorario)
 
 module.exports = router;

@@ -9,9 +9,15 @@ router.get('/', ListarReservas)
 router.post('/add', AgregarReserva)
 
 // Editar reservas
-router.put('/edit/:id', EditarReserva)
+router.put('/edit/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EditarReserva)
 
 // Eliminar reservas
-router.delete('/delete/:id', EliminarReserva)
+router.delete('/delete/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EliminarReserva)
 
 module.exports = router;

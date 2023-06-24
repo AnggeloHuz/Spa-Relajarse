@@ -12,12 +12,21 @@ router.get('/nombre/:buscar', BuscarProducto)
 router.get('/categoria/:buscar', BuscarProductoCategoria)
 
 // Agregar Productos a la Tienda
-router.post('/add', AgregarProducto)
+router.post('/add', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, AgregarProducto)
 
 // Editar Productos de la Tienda
-router.put('/edit/:id', EditarProducto)
+router.put('/edit/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EditarProducto)
 
 // Eliminar Producto de la Tienda
-router.delete('/delete/:id', EliminarProductos)
+router.delete('/delete/:id', function (req, res, next) {
+    roles = ["admin", "root"];
+    Autenticacion(req, res, next, roles);
+}, EliminarProductos)
 
 module.exports = router;
