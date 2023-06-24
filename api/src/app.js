@@ -12,7 +12,8 @@ const horariosRouter = require('./routes/horarios.routes');
 const serviciosRouter = require('./routes/servicios.routes');
 const saludRouter = require('./routes/salud.routes');
 const recetasRouter = require('./routes/recetas.routes');
-const reservasRouter = require('./routes/reservas.routes')
+const reservasRouter = require('./routes/reservas.routes');
+const estacionesRouter = require('./routes/estaciones.routes')
 
 const config = {
   application: {
@@ -49,7 +50,8 @@ app.use('/horarios', horariosRouter);
 app.use('/servicios', serviciosRouter);
 app.use('/salud', saludRouter);
 app.use('/recetas', recetasRouter);
-app.use('/reservas', reservasRouter)
+app.use('/reservas', reservasRouter);
+app.use('/estaciones', estacionesRouter)
 
 // Middleware para manejar rutas no encontradas y devolver error 404
 app.use((req, res, next) => {
