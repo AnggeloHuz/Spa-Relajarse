@@ -3,7 +3,7 @@ const pool = require('../config/database')
 async function ListarReseñas(req, res) {
     try {
         const consulta = await pool.query('SELECT * FROM reseñas');
-        res.status(200).json({ status: 200, data: consulta, menssage: 'Se ha listado con éxito todos las reseñas de la tienda' })
+        res.status(200).json({ status: 200, data: consulta, menssage: 'Se ha listado con éxito todos las reseñas de la SPA' })
     } catch (error) {
         res.status(500).json({ status: 500, menssage: 'Ocurrio un error dentro del servidor' });
     }
