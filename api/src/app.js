@@ -9,7 +9,8 @@ const dotenv = require('dotenv').config();
 const productosRouter = require('./routes/productos.routes');
 const reseñasRouter = require('./routes/reseñas.routes');
 const horariosRouter = require('./routes/horarios.routes');
-const serviciosRouter = require('./routes/servicios.routes')
+const serviciosRouter = require('./routes/servicios.routes');
+const saludRouter = require('./routes/salud.routes')
 
 const config = {
   application: {
@@ -43,7 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/productos', productosRouter);
 app.use('/resenas', reseñasRouter);
 app.use('/horarios', horariosRouter);
-app.use('/servicios', serviciosRouter)
+app.use('/servicios', serviciosRouter);
+app.use('/salud', saludRouter)
 
 // Middleware para manejar rutas no encontradas y devolver error 404
 app.use((req, res, next) => {
