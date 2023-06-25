@@ -39,7 +39,7 @@ export default function NavbarWithCTAButton() {
                     Recetas
                 </Link>
 
-                <Link className='text-md lg:text-lg font-semibold text-fuerte hover:bg-oscuro rounded-md p-1 hover:text-primario transition-all duration-500 ' to='/recetas'>
+                <Link className='text-md lg:text-lg font-semibold text-fuerte hover:bg-oscuro rounded-md p-1 hover:text-primario transition-all duration-500 ' to='/estaciones'>
                     Estaciones
                 </Link>
 

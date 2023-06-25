@@ -7,6 +7,7 @@ import Recetas from './Views/Recetas'
 import Estaciones from './Views/Estaciones'
 import Reservaciones from './Views/Reservaciones'
 import Resenas from './Views/Resenas'
+import FooterGlobal from './Components/FooterGlobal'
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
         <Route path="/reservaciones" element={<Reservaciones />} />
         <Route path="/resenas" element={<Resenas />} />
       </Routes>
+
+      <FooterGlobal />
     </>
   )
 }

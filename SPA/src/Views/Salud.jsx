@@ -1,11 +1,15 @@
-import NavbarWithCTAButton from "../Components/Navegacion"
+import ArticuloSalud from "../Components/Tarjetas/ArticuloSalud"
 
 function Salud() {
 
     return (
         <>
             <main>
-                Salud
+                <section className="w-full h-auto p-4 lg:p-8 flex flex-col gap-8">
+                    <ArticuloSalud />
+                    <ArticuloSalud />
+                    <ArticuloSalud />
+                </section>
             </main>
         </>
     )
