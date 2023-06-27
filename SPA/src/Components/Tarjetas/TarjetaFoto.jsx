@@ -1,6 +1,6 @@
 import { Card } from 'flowbite-react';
 
-export default function TarjetaFoto() {
+export default function TarjetaFoto({data}) {
   return (
     <Card
       imgAlt="Meaningful alt text for an image that is not purely decorative"
@@ -8,12 +8,15 @@ export default function TarjetaFoto() {
     >
       <h5 className="text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         <p>
-          Noteworthy technology acquisitions 2021
+          {data.dia}
         </p>
       </h5>
       <p className="font-normal text-gray-700 dark:text-gray-400">
         <p>
-          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+          <b>MAÑANA: </b>{data.inicio_mañana} hasta {data.fin_mañana}
+        </p>
+        <p>
+          <b>TARDE: </b>{data.inicio_tarde} hasta {data.fin_tarde}
         </p>
       </p>
     </Card>

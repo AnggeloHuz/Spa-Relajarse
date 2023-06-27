@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { Autenticacion } = require('../middleware/jwt');
 const { ListarProductos, AgregarProducto, EditarProducto, EliminarProductos, BuscarProducto, BuscarProductoCategoria } = require('../controller/productos')
 
 // Listar todos los Productos de la tienda

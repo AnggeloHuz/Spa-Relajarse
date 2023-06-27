@@ -1,6 +1,7 @@
 const express = require('express');
 const { ListarRecetas, AgregarReceta, EditarReceta, EliminarReceta } = require('../controller/recetas');
 const router = express.Router();
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar recetas
 router.get('/', ListarRecetas)

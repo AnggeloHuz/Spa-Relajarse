@@ -1,6 +1,7 @@
 const express = require('express');
 const { ListarEstaciones, AgregarEstacion, EditarEstacion, EliminarEstacion, ListarEstacionServicios } = require('../controller/estaciones');
 const router = express.Router();
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar estaciones
 router.get('/', ListarEstaciones)

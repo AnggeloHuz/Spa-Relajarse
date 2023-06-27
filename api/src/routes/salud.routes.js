@@ -1,6 +1,7 @@
 const express = require('express');
 const { ListarSalud, AgregarSalud, EditarSalud, EliminarSalud } = require('../controller/salud');
 const router = express.Router();
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar Articulos de salud
 router.get('/', ListarSalud)

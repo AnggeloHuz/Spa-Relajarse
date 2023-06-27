@@ -1,18 +1,18 @@
 import TituloSeccion from "../Titulos/TituloSeccion"
 
-function ArticuloSalud() {
+function ArticuloSalud({ data }) {
 
     return (
         <>
             <div className="w-full h-auto flex flex-col gap-8 bg-gray-100 rounded-md p-4">
-                <TituloSeccion />
+                <TituloSeccion titulo={data.titulo}/>
                 <div className="w-full h-full text-lg lg:text-xl">
                     <img className="float-left md:w-1/2 mr-4 rounded-lg border-2 border-primario"
-                        src="https://img.freepik.com/foto-gratis/concepto-salud-estetoscopio-ventosas-mano_53876-129536.jpg?w=2000"
+                        src={data.imagen}
                         alt="" />
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quibusdam delectus distinctio cum doloremque quisquam nobis doloribus autem blanditiis rerum, ut assumenda. Reprehenderit numquam maiores, deserunt hic debitis sapiente voluptatem.
+                    {data.descripcion}
                     <p className="mt-8">
-                        <a href="">Enlace del artículo principal</a>
+                        <a href={data.referencia} className="text-oscuro font-semibold hover:cursor-pointer">Enlace del artículo principal</a>
                     </p>
                 </div>
             </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {  } = require('../controller/reseñas');
 const { ListarHorarios, EditarHorario } = require('../controller/horarios');
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar los horarios
 router.get('/', ListarHorarios)

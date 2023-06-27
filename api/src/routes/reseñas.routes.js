@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { ListarReseñas, AgregarReseña, EliminarReseñas } = require('../controller/reseñas')
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar las reseñas
 router.get('/', ListarReseñas)

@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^4.3.0",
+    "animate.css": "^4.1.1",
     "flowbite": "^1.6.6",
     "flowbite-react": "^0.4.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-router-dom": "^6.14.0"
+    "react-router-dom": "^6.14.0",
+    "sweetalert2": "^11.7.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

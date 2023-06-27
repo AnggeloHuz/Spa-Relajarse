@@ -1,11 +1,18 @@
 import { TextInput, Select } from "flowbite-react"
 import TarjetaProducto from "../Components/Tarjetas/TarjetaProducto"
 import TituloSeccion from "../Components/Titulos/TituloSeccion"
+import FooterGlobal from "../Components/FooterGlobal"
+import NavbarWithCTAButton from "../Components/Navegacion"
+import { useContext } from "react"
+import { Contexto } from "../Context/Contexto"
 
 function Belleza() {
 
+    const { productos } = useContext(Contexto)
+
     return (
         <>
+            <NavbarWithCTAButton />
             <main>
                 <section className="p-4 lg:p-8">
                     <h2 className="text-center text-5xl text-oscuro font-bold mb-24 mt-24">
@@ -53,15 +60,17 @@ function Belleza() {
 
                 <section className="p-4 lg:p-8">
 
-                    <TituloSeccion />
+                    <TituloSeccion titulo={'Todos los productos'}/>
                     <div className="mb-4 lg:mb-8 mt-4 lg:mt-8 lg:grid lg:grid-cols-4 gap-8">
-                        <TarjetaProducto />
-                        <TarjetaProducto />
-                        <TarjetaProducto />
-                        <TarjetaProducto />
+                        {
+                            productos.map((producto) => (
+                                <TarjetaProducto data={producto}/>
+                            ))
+                        }
                     </div>
                 </section>
             </main>
+            <FooterGlobal />
         </>
     )
 }

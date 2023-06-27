@@ -13,8 +13,8 @@ async function AgregarServicio(req, res) {
     try {
         const { body } = req
 
-        if (!body.nombre || !body.categoria || !body.descripcion || !body.imagen || !body.precio || !body.estacion) {
-            return res.status(400).json({ status: 400, menssage: 'No has ingresado propiedades necesarias: nombre, categoria, descripcion, estacion, imagen y precio' })
+        if (!body.nombre || !body.categoria || !body.descripcion || !body.imagen || !body.precio) {
+            return res.status(400).json({ status: 400, menssage: 'No has ingresado propiedades necesarias: nombre, categoria, descripcion, imagen y precio' })
         }
 
         await pool.query('INSERT INTO servicios SET ?', [body]);
@@ -30,8 +30,8 @@ async function EditarServicio(req, res) {
         const { id } = req.params
         const { body } = req
 
-        if (!body.nombre || !body.categoria || !body.descripcion || !body.imagen || !body.precio || !body.estacion) {
-            return res.status(400).json({ status: 400, menssage: 'No has ingresado propiedades necesarias: nombre, categoria, descripcion, estacion, imagen y precio' })
+        if (!body.nombre || !body.categoria || !body.descripcion || !body.imagen || !body.precio) {
+            return res.status(400).json({ status: 400, menssage: 'No has ingresado propiedades necesarias: nombre, categoria, descripcion, imagen y precio' })
         }
 
         const consulta = pool.query('SELECT * FROM servicios WHERE id = ?', [id])

@@ -1,6 +1,7 @@
 const express = require('express');
 const { ListarServicios, AgregarServicio, EditarServicio, EliminarServicio } = require('../controller/servicios');
 const router = express.Router();
+const { Autenticacion } = require('../middleware/jwt');
 
 // Listar Servicios
 router.get('/', ListarServicios)

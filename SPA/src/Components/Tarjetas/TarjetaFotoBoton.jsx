@@ -1,6 +1,7 @@
 import { Card, Button } from 'flowbite-react';
+import Modal from '../Modal/Modal';
 
-export default function TarjetaFotoBoton() {
+export default function TarjetaFotoBoton({ data }) {
   return (
     <Card
       imgAlt="Meaningful alt text for an image that is not purely decorative"
@@ -8,17 +9,10 @@ export default function TarjetaFotoBoton() {
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         <p>
-          Noteworthy technology acquisitions 2021
+          {data.nombre}
         </p>
       </h5>
-      <Button
-        gradientDuoTone="greenToBlue"
-        outline
-      >
-        <p>
-          Ver Detalles
-        </p>
-      </Button>
+      <Modal titulo={'Detalles de la Estación'} boton={'Ver Detalles'} cuerpo={data.descripcion}/>
     </Card>
   )
 }
