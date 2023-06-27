@@ -1,0 +1,7 @@
+Para Instalar el Proyecto se Necesitan necesita 5 pasos:
+
+1-) Descargar el repositorio.
+2-) Instalar las dependecias tanto de la Api como la del SPA con "npm install"
+3-) Activar la base de datos MySql que se llama "spa.sql"
+4-) Inicializar el servidor con "npm start"
+5-) Inicializar el cliente con "npm run dev"
